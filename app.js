@@ -29,14 +29,23 @@ function displayAnimalGif(x) {
             var imgSrc = results[i].images.fixed_width_still.url;
             var imgSrcStill = results[i].images.fixed_width_still.url;
             var imgSrcAnimate = results[i].images.fixed_width.url;
+            var imgRating = results[i].rating;
             var createImage = $("<img>");
+            var createSpan = $("<span>");
+            var createDiv = $("<div>");
 
+            createDiv.addClass("rating-alignment");
+            createSpan.text("Rating: " + imgRating);
+            createSpan.addClass("rating");
             createImage.attr("src", imgSrc);
             createImage.attr("data-still", imgSrcStill );
             createImage.attr("data-animate", imgSrcAnimate);
             createImage.attr("data-state", "still");
             createImage.addClass("animal-images");
-            $("#animal-gif").prepend(createImage);
+            $(createDiv).prepend(createSpan);
+            $(createDiv).prepend(createImage);
+            $("#animal-gif").prepend(createDiv);
+
         }
     })
 }

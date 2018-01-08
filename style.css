@@ -1,0 +1,43 @@
+body {
+    background-image: url(spiration-light.png);
+}
+
+.container {
+    width: 980px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+}
+
+#animal-input {
+    width: 350px;
+    margin-bottom: 20px;
+    padding: 5px;
+    font-size: 150%;
+    text-align: center;
+}
+
+#add-animal {
+    width: 350px;
+    padding: 5px;
+    font-size: 150%;
+}
+
+button {
+    padding: 5px;
+    margin: 10px;
+    min-width: 200px;
+    font-size: 120%;
+    height: auto;
+}
+
+img {
+    margin: 40px;
+    margin-bottom: 5px;
+}
+
+.rating-alignment {
+    display: inline-block;
+    text-align: center;
+    width: 250px;
+}
