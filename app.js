@@ -1,13 +1,13 @@
-var initialAnimals = ["dog", "cat", "chicken", "lamb", "goat", "tiger"];
+var animalsArray = ["dog", "cat", "chicken", "lamb", "goat", "tiger"];
 
 function createButton() {
     $("#button-animals").empty();
 
-    for(var i = 0; i < initialAnimals.length; i++) {
+    for(var j = 0; j < animalsArray.length; j++) {
     var createButton = $("<button>");
     createButton.addClass("buttons");
-    createButton.attr("data-name", initialAnimals[i]);
-    createButton.text(initialAnimals[i]);
+    createButton.attr("data-name", animalsArray[j]);
+    createButton.text(animalsArray[j]);
     $("#button-animals").append(createButton);
     }
 }
@@ -40,13 +40,23 @@ function displayAnimalGif(x) {
         }
     })
 }
+
 createButton();
 
-$("button").on("click", function(){
+$(document).on("click", "button", function() {
     displayAnimalGif(this);
 });
 
-$(document).on("click", "img", function(){
+$("#add-animal").on("click", function(event) {
+    event.preventDefault();
+
+    var newAnimal = $("#animal-input").val().trim();
+    animalsArray.push(newAnimal);
+    
+    createButton();
+})
+
+$(document).on("click", "img", function() {
     var state = $(this).attr("data-state");
     
     if(state === "still") {
@@ -57,6 +67,5 @@ $(document).on("click", "img", function(){
     else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-
     }
 });
